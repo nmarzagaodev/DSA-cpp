@@ -10,10 +10,12 @@
     - Array Rotation? 
 */
 
+#ifndef ARRAYLIST_H
+#define ARRAYLIST_H
+
 #include <iostream>
 #include <string>
-
-using namespace std;
+#include <stdexcept>
 
 template<typename T>
 
@@ -44,19 +46,19 @@ public:
 
     T& get(size_t index) {
         if (index >= this->capacity) 
-            throw out_of_range("ArrayList.get(): Index out of bounds");
+            throw std::out_of_range("ArrayList.get(): Index out of bounds");
         return this->items[index];
     }
     
     void set(size_t index, T item) {
         if (index >= this->capacity) 
-            throw out_of_range("ArrayList.set(): Index out of bounds");
+            throw std::out_of_range("ArrayList.set(): Index out of bounds");
         this->items[index] = item;
     }
 
     void remove(size_t index) {
         if (index >= this->capacity) 
-            throw out_of_range("ArrayList.remove(): Index out of bounds");
+            throw std::out_of_range("ArrayList.remove(): Index out of bounds");
         this->items[index] = T();
     }
 
@@ -101,3 +103,5 @@ public:
     Iterator begin() { return Iterator(items); };
     Iterator end()   { return Iterator(items + size); };
 };
+
+#endif

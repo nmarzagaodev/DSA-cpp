@@ -95,8 +95,6 @@ int main(void) {
     cout << "bfs: ";
     bfs(graph, 0);
     cout << endl;
-
-
-
+    
     return 0;
 }
